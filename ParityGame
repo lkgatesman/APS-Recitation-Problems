@@ -1,0 +1,46 @@
+import java.util.*;
+
+public class Main {
+
+    public static void main(String args[]){
+
+        //Scanner to read in standard input
+        Scanner in = new Scanner(System.in);
+
+        String a = in.nextLine();   //Original string given
+        String b = in.nextLine();   //Target string
+
+        in.close();
+
+        int suma = 0;   //Sum of all the 1's in string a
+        int sumb = 0;   //Sum of all the 1's in string b
+
+        //Count the number of 1's in string a
+        for(int i = 0; i < a.length(); i++){
+            if(a.charAt(i)=='1'){
+                suma++;
+            }
+        }
+
+        //Count the number of 1's in string b
+        for(int j = 0; j < b.length(); j++){
+            if(b.charAt(j)=='1'){
+                sumb++;
+            }
+        } 
+
+        //Suma = the remainder of (suma x 2) % 2
+        suma = suma + suma % 2;
+
+        //If suma is still larger than or equal to b, changing a to b is possible
+        if(suma >= sumb){
+            System.out.println("YES");
+        }
+        //If not, changing a to b is not possible
+        else{
+            System.out.println("NO");
+        }
+
+    }
+    
+}
